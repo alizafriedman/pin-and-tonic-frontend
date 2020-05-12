@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { backendUrl } from "./config";
 // import { PokemonContext } from "./PokemonContext";
 
+
 const Signup = () => {
   //   const { login, authToken } = useContext(PokemonContext);
   // console.log(authToken) // console log authToken to test login flow
@@ -32,7 +33,7 @@ const Signup = () => {
   if (loggedIn) return <Redirect to="/" />;
 
   return (
-    <main className="signup">
+    <div className="signup">
       <form onSubmit={handleSubmit}>
         <h2>Register</h2>
         <input
@@ -59,7 +60,8 @@ const Signup = () => {
 
         <button type="submit">Sign Up</button>
       </form>
-    </main>
+}
+    </div>
   );
 };
 

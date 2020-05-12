@@ -1,18 +1,26 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Login from './Login'
-import Signup from './Signup';
+import Login from './Login';
+// import Signup from './Signup';
+import NavBar from "./components/NavBar";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import SignupPop from './components/SignupPop';
+
 
 
 const App = () => {
   return (
-  <BrowserRouter>
-      <Switch>
-        <Route exact path='/' component={Login} />
-        <Route path='/signup' component={Signup} />
-    </Switch>
+    <BrowserRouter>
+      <CssBaseline>
+        <NavBar />
+        {/* <SignupPop /> */}
+        <Switch>
+          <Route exact path="/" component={Login} />
+        {/* <Route path="/signup" component={SignupPop} /> */}
+        </Switch>
+      </CssBaseline>
     </BrowserRouter>
-  )
+  );
 }
 
 export default App;
@@ -29,6 +37,8 @@ export default App;
 
 // const App = () => {
 //   const { needLogin } = useContext(PokemonContext);
+
+
 
 //   return (
 //     <BrowserRouter>

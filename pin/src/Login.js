@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { backendUrl } from "./config";
+// import NavBar from "./components/NavBar";
 // import { PokemonContext } from "./PokemonContext";
 
 const Login = () => {
@@ -30,7 +31,7 @@ const Login = () => {
   if (loggedIn) return <Redirect to="/" />;
 
   return (
-    <main className="centered middled">
+    <div className="centered middled">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -45,8 +46,19 @@ const Login = () => {
           onChange={updatePassword}
         />
         <button type="submit">Login</button>
+        {/* <button type="button" onClick={handleOpen}>
+          Open Modal
+        </button> */}
+        {/* <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+        >
+          {body}
+        </Modal> */}
       </form>
-    </main>
+    </div>
   );
 };
 
