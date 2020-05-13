@@ -15,7 +15,7 @@ const App = () => {
         <NavBar />
         {/* <SignupPop /> */}
         <Switch>
-          <Route exact path="/" component={Login} />
+          {/* <Route exact path="/" component={Login} /> */}
         {/* <Route path="/signup" component={SignupPop} /> */}
         </Switch>
       </CssBaseline>

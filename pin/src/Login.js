@@ -32,20 +32,22 @@ const Login = () => {
 
   return (
     <div className="centered middled">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='signForm'>
         <input
+          className='emailInput'
           type="text"
           placeholder="Email"
           value={email}
           onChange={updateEmail}
         />
         <input
+          className='passwordInput'
           type="password"
           placeholder="Password"
           value={password}
           onChange={updatePassword}
         />
-        <button type="submit">Login</button>
+        <button className='loginButton' type="submit">Login</button>
         {/* <button type="button" onClick={handleOpen}>
           Open Modal
         </button> */}

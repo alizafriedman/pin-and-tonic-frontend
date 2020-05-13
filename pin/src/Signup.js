@@ -33,10 +33,11 @@ const Signup = () => {
   if (loggedIn) return <Redirect to="/" />;
 
   return (
-    <div className="signup">
-      <form onSubmit={handleSubmit}>
-        <h2>Register</h2>
+    <div className="signup centered">
+      <form onSubmit={handleSubmit} className="signForm">
+        <h2 id="transition-modal-description">Register</h2>
         <input
+          className="usernameInput"
           type="text"
           value={username}
           onChange={updateUsername}
@@ -44,6 +45,7 @@ const Signup = () => {
           placeholder="Enter Username"
         />
         <input
+          className="emailInput"
           type="email"
           value={email}
           onChange={updateEmail}
@@ -51,6 +53,7 @@ const Signup = () => {
           placeholder="Enter Email"
         />
         <input
+          className="passwordInput"
           type="password"
           value={password}
           onChange={updatePassword}
@@ -58,9 +61,11 @@ const Signup = () => {
           placeholder="Enter Password"
         />
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="signupButton">
+          Sign Up
+        </button>
       </form>
-}
+      }
     </div>
   );
 };

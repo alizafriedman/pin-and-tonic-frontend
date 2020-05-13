@@ -13,10 +13,15 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   paper: {
-    // backgroundColor: "#500815",
-    // border: "2px solid #500815",
-    // boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3),
+    backgroundColor: "#500815",
+    opacity: "0.5px",
+    border: "2px solid #500815",
+    borderRadius: "15px",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    outline: 0,
+    height: "45vh",
+    width: "25vw",
   },
 }));
 
@@ -37,7 +42,7 @@ export default function TransitionsModal() {
         <button type="button" onClick={handleOpen}>
           Login
         </button>
-        <div className="form">
+        <div>
           <Modal
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
@@ -53,8 +58,8 @@ export default function TransitionsModal() {
             <Fade in={open}>
               <div className={classes.paper}>
                 {/* <h2 id="transition-modal-title">Transition modal</h2> */}
+                <p id="transition-modal-description">please log in below</p>
                 <Login />
-                <p id="transition-modal-description">blah</p>
               </div>
             </Fade>
           </Modal>
