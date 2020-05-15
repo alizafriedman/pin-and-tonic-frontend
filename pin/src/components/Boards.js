@@ -1,21 +1,17 @@
 import React, { useContext, useEffect } from "react";
 import {UserContext} from '../UserContext'
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: "15",
-    paddingTop: "36%", // 16:9
+    paddingTop: "36%",
   },
   title: {
     fontSize: "30px",
@@ -51,15 +47,15 @@ export default function Boards() {
     const context = useContext(UserContext)
 
     useEffect(() => {
-    context.loadBoards()
-}, [])
+        context.loadBoards()
+    }, [])
 
     // if (!context.boards.length) return null
     return (
-        <React.Fragment>
-            <div className='boardHeader'>
-                <h2 className='boardHeader__text'>My Boards</h2>
-            </div>
+      <React.Fragment>
+        <div className="boardHeader">
+          <h2 className="boardHeader__text">My Boards</h2>
+        </div>
         <div className="boardCont">
           {context.boards.map((board) => {
             return (
@@ -85,23 +81,13 @@ export default function Boards() {
                   {board.boardName}
                 </Typography>
                 <CardMedia
-                  //   className={classes.media}
                   component="img"
                   alt="test"
                   height="500"
                   width="450"
                   image={board.img}
-                  //   title={board.boardname}
+
                 />
-                {/* <CardContent>
-                    <Typography
-                    className={classes.title}
-                    color="textSecondary"
-                    component="p"
-                    >
-                    description will eventually go here
-                    </Typography>
-                </CardContent> */}
                 <CardActions disableSpacing>
                   <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
@@ -115,6 +101,9 @@ export default function Boards() {
           })}
         </div>
         )
+        <div className="boardButton">
+          <Link className="newBoardButton" to='/boards/new'>add new board</Link>
+        </div>
       </React.Fragment>
     );
 }

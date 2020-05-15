@@ -1,12 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { backendUrl } from "./config";
-// import NavBar from "./components/NavBar";
 import {UserContext} from './UserContext'
 
 const Login = () => {
-  const { login } = useContext(UserContext);
-  // console.log(authToken) // console log authToken to test login flow
+  const { login, authToken } = useContext(UserContext);
   const [loggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState("demo@example.com");
   const [password, setPassword] = useState("password");

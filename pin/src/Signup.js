@@ -5,12 +5,10 @@ import { backendUrl } from "./config";
 
 
 const Signup = () => {
-  //   const { login, authToken } = useContext(PokemonContext);
-  // console.log(authToken) // console log authToken to test login flow
   const [loggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState("demo@example.com");
-    const [password, setPassword] = useState("password");
-    const [username, setUsername] = useState("username")
+  const [password, setPassword] = useState("password");
+  const [username, setUsername] = useState("username")
 
   const handleSubmit = async (e) => {
     e.preventDefault();

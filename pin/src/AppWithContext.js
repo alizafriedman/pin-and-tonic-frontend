@@ -8,8 +8,9 @@ const localStorageToken = localStorage.getItem("temp-token");
 
 const [user, setUser] = useState('name');
 const [singleBoard, setSingleBoard] = useState('cocktails');
-const [boards, setBoards] = useState([])
-const [pin, setPin] = useState(null)
+  const [boards, setBoards] = useState([]);
+  const [newBoard, setNewBoard] = useState(null);
+  const [pin, setPin] = useState(null);
 const [authToken, setAuthToken] = useState(localStorageToken);
 const [needLogin, setNeedLogin] = useState(!!localStorageToken);
 
@@ -39,6 +40,23 @@ const [needLogin, setNeedLogin] = useState(!!localStorageToken);
     }
   };
 
+
+  const createBoard = async (boardName, img) => {
+   console.log(boardName, img)
+   const response = await fetch(`${backendUrl}/boards/new`, {
+     method: "post",
+     headers: {
+       Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json"
+     },
+     body: JSON.stringify({ boardName, img })
+   });
+   if (response.ok) {
+     const BoardsResponse = await response.json();
+     setNewBoard(BoardsResponse);
+   }
+ };
+
   return (
     <UserContext.Provider
       value={{
@@ -46,9 +64,11 @@ const [needLogin, setNeedLogin] = useState(!!localStorageToken);
         singleBoard,
         boards,
         pin,
+        newBoard,
         authToken,
         setAuthToken,
         needLogin,
+        createBoard,
         login,
         loadBoards,
         getOneBoard,
