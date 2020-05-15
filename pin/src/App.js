@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from './Login';
 // import Signup from './Signup';
 import NavBar from "./components/NavBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import SignupPop from './components/SignupPop';
+import Boards from './components/Boards'
+import { UserContext } from './UserContext'
 
 
 
 const App = () => {
+  const { Login } = useContext(UserContext);
   return (
     <BrowserRouter>
       <CssBaseline>
@@ -16,7 +19,7 @@ const App = () => {
         {/* <SignupPop /> */}
         <Switch>
           {/* <Route exact path="/" component={Login} /> */}
-        {/* <Route path="/signup" component={SignupPop} /> */}
+        <Route path="/users/all" component={Boards} />
         </Switch>
       </CssBaseline>
     </BrowserRouter>
