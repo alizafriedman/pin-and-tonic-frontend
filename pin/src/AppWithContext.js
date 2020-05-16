@@ -7,10 +7,11 @@ const AppWithContext = () => {
 const localStorageToken = localStorage.getItem("temp-token");
 
 const [user, setUser] = useState('name');
-const [singleBoard, setSingleBoard] = useState('cocktails');
+const [singleBoard, setSingleBoard] = useState(null);
   const [boards, setBoards] = useState([]);
   const [newBoard, setNewBoard] = useState(null);
   const [pin, setPin] = useState(null);
+  const [pins, setAllPins] = useState([]);
 const [authToken, setAuthToken] = useState(localStorageToken);
 const [needLogin, setNeedLogin] = useState(!!localStorageToken);
 
@@ -30,19 +31,35 @@ const [needLogin, setNeedLogin] = useState(!!localStorageToken);
     }
   };
 
+  const loadPins = async () => {
+    const response = await fetch(`${backendUrl}/pins/all`, {
+      headers: { Authorization: `Bearer ${authToken}` },
+            // body: JSON.stringify({ category, imgUrl, pinName, description})
+
+    });
+    if (response.ok) {
+      const pins = await response.json();
+      setAllPins(pins.pins);
+    }
+  };
+
+
   const getOneBoard = async (id) => {
     const response = await fetch(`${backendUrl}/boards/${id}`, {
-      headers: { Authorization: `Bearer ${authToken}` },
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+        "Content-Type": "application/json"
+      },
+      // body: JSON.stringify({ category, imgUrl, pinName, description})
     });
     if (response.ok) {
       const BoardsResponse = await response.json();
-      setSingleBoard(BoardsResponse);
+      setSingleBoard(BoardsResponse.board);
     }
   };
 
 
   const createBoard = async (boardName, img) => {
-   console.log(boardName, img)
    const response = await fetch(`${backendUrl}/boards/new`, {
      method: "post",
      headers: {
@@ -64,10 +81,13 @@ const [needLogin, setNeedLogin] = useState(!!localStorageToken);
         singleBoard,
         boards,
         pin,
+        pins,
         newBoard,
         authToken,
         setAuthToken,
+        loadPins,
         needLogin,
+        setAllPins,
         createBoard,
         login,
         loadBoards,

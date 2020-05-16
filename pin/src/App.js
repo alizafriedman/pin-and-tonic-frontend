@@ -8,6 +8,8 @@ import SignupPop from './components/SignupPop';
 import Boards from './components/Boards'
 import { UserContext } from './UserContext'
 import NewBoard from './components/NewBoard'
+import BoardPins from './components/BoardPins'
+import Splash from './components/Splash'
 
 
 
@@ -18,9 +20,10 @@ const App = () => {
       <CssBaseline>
         <NavBar />
         <Switch>
-          {/* <Route exact path="/" component={Login} /> */}
+          <Route exact path="/" component={Splash} />
           <Route path="/users/all" component={Boards} />
-          <Route path="/boards/new" component={NewBoard} />
+          <Route exact path="/boards/new" component={NewBoard} />
+          <Route path="/boards/:id" component={BoardPins} />
         </Switch>
       </CssBaseline>
     </BrowserRouter>
