@@ -116,7 +116,7 @@ export default function BoardPins(props) {
                                 //     </IconButton>
                                 // }
                                 title={pin.category}
-                                subheader= {pin.createdAt}
+                                subheader= {new Date(pin.createdAt).toDateString()}
                             />
                         
 

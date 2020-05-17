@@ -56,7 +56,7 @@ export default function TransitionsModal() {
           >
             <Fade in={open}>
               <div className={classes.paper}>
-                <Signup />
+                <Signup setOpen={setOpen}/>
                 <p id="transition-modal-description">
                 </p>
               </div>

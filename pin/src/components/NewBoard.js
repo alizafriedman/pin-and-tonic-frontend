@@ -43,8 +43,8 @@ export default function NewBoard() {
                 <TextField id="standard-basic" label="Board Name" onChange={(e) => {setNewBoardName(e.target.value)}}/>
                 <TextField id="standard-basic" label="main img link" onChange={(e) => { setNewImg(e.target.value) }}/>
             </div>
-            <AddToBoard />
             <button type='submit'>create</button>
+
         </form>
    
     );

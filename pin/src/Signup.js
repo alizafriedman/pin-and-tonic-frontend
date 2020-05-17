@@ -4,7 +4,7 @@ import { backendUrl } from "./config";
 // import { PokemonContext } from "./PokemonContext";
 
 
-const Signup = () => {
+const Signup = (props) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState("demo@example.com");
   const [password, setPassword] = useState("password");
@@ -19,7 +19,7 @@ const Signup = () => {
     });
 
     if (response.ok) {
-      const { token } = await response.json();
+      props.setOpen(false);
       setLoggedIn(true);
     }
   };

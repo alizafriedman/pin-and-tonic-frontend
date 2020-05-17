@@ -79,8 +79,9 @@ export default function Splash(props) {
     };
 
     useEffect(() => {
-        // const test = props.match.params.id;
+        // const test = props.match.params.id
         context.loadPins()
+
     }, [])
     // console.log(context.loadPins)
     // if (!context.pins.length) return null;
@@ -92,7 +93,7 @@ export default function Splash(props) {
             <div className={classes.pinContainer}>
                 {context.pins.map((pin) => {
                     return (
-                        <Card className={classes.root} id="testing" key={pin.img}>
+                        <Card className={classes.root} id="testing" key={pin.id}>
                             <CardHeader className="splashHeader" />
                             <Typography
                                 className={classes.title}
@@ -126,8 +127,10 @@ export default function Splash(props) {
                                 </IconButton>
                                 <IconButton>
                                     <AddIcon />
+                                    
                                 </IconButton>
-                                {/* <AddToBoard className={classes.select} /> */}
+                                <AddToBoard className={classes.select} pin={pin} />
+
                                 <CardActions disableSpacing>
 
                                     <IconButton

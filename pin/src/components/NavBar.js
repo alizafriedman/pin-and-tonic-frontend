@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -19,7 +20,7 @@ import { useHistory, Link } from "react-router-dom";
 import SignupPop from './SignupPop'
 import LoginPop from './LoginPop'
 import Boards from './Boards'
-import SignOut from './SignOut'
+// import SignOut from './SignOut'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -131,9 +132,9 @@ const useStyles = makeStyles((theme) => ({
       <MenuItem onClick={handleMenuClose}>
         <Link to="/users/all" className='boardButton'>My Boards</Link>
       </MenuItem>
-      <MenuItem onClick={handleMenuClose}>
+      {/* <MenuItem onClick={handleMenuClose}>
         <SignOut />
-      </MenuItem>
+      </MenuItem> */}
     </Menu>
   );
 
