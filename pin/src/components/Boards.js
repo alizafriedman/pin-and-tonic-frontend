@@ -12,17 +12,27 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { Link } from 'react-router-dom';
+import CreateIcon from '@material-ui/icons/Create';
+import { CardActionArea } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 318,
+    marginTop: "45px",
+    marginBottom: "45px",
+    borderRadius: "30px"
   },
-  media: {
-    height: "15",
+  boardCont: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+  },
+   media: {
+    height: "10",
     paddingTop: "36%",
   },
   title: {
-    fontSize: "30px",
+    fontSize: "20px",
     fontWeight: "bold",
     color: "#500815",
     textAlign: "center",
@@ -44,7 +54,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Boards() {
     const classes = useStyles();
-    const context = useContext(UserContext)
+  const context = useContext(UserContext)
+  
+
 
     useEffect(() => {
         context.loadBoards()
@@ -53,40 +65,43 @@ export default function Boards() {
     // if (!context.boards.length) return null
     return (
       <React.Fragment>
+        <div className="boardButtonIcon">
+          <IconButton>
+            <CreateIcon />
+          <Link className="newBoardButton" to='/boards/new'>add a new board</Link>
+          </IconButton>
+        </div>
         <div className="boardHeader">
           <h2 className="boardHeader__text">My Boards</h2>
         </div>
-        <div className="boardCont">
+        <div className={classes.boardCont}>
           {context.boards.map((board) => {
             return (
+              <Link to={`/boards/${board.id}`} style={{ textDecoration: "none" }}>
               <Card className={classes.root} key={board.img}>
+                <CardActionArea >
                 <CardHeader
-                  avatar={
-                    <Avatar
-                      aria-label="Board"
-                      className={classes.avatar}
-                    ></Avatar>
-                  }
-                  action={
-                    <IconButton aria-label="settings">
-                      <MoreVertIcon />
-                    </IconButton>
-                  }
+                  
+                  // action={
+                  //   <IconButton aria-label="settings">
+                  //     <MoreVertIcon />
+                  //   </IconButton>
+                  // }
                 />
                 <Typography
                   className={classes.title}
                   variant="body2"
                   component="h2"
                 >
-                  {board.boardName}
-                </Typography>
+                {board.boardName}
+                  </Typography>
+                  
                 <CardMedia
                   component="img"
                   alt="test"
                   height="500"
                   width="450"
                   image={board.img}
-
                 />
                 <CardActions disableSpacing>
                   <IconButton aria-label="add to favorites">
@@ -95,15 +110,15 @@ export default function Boards() {
                   <IconButton aria-label="share">
                     <ShareIcon />
                   </IconButton>
-                </CardActions>
-              </Card>
+                  </CardActions>
+                  </CardActionArea>
+                </Card>
+              </Link>
             );
           })}
         </div>
         )
-        <div className="boardButton">
-          <Link className="newBoardButton" to='/boards/new'>add new board</Link>
-        </div>
+       
       </React.Fragment>
     );
 }

@@ -10,6 +10,7 @@ const [user, setUser] = useState('name');
 const [singleBoard, setSingleBoard] = useState(null);
   const [boards, setBoards] = useState([]);
   const [newBoard, setNewBoard] = useState(null);
+  const [addPinToBoard, setAddPinToBoard] = useState(null);
   const [pin, setPin] = useState(null);
   const [pins, setAllPins] = useState([]);
 const [authToken, setAuthToken] = useState(localStorageToken);
@@ -58,6 +59,21 @@ const [needLogin, setNeedLogin] = useState(!!localStorageToken);
     }
   };
 
+  const addBoardIdToPin = async (boardId, id) => {
+    const response = await fetch(`${backendUrl}/pins/${id}`, {
+      method: 'patch',
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ boardId })
+    });
+    if (response.ok) {
+      const updatePins = await response.json();
+      setAddPinToBoard(updatePins)
+      console.log(updatePins)
+    }
+  }
 
   const createBoard = async (boardName, img) => {
    const response = await fetch(`${backendUrl}/boards/new`, {
@@ -92,6 +108,9 @@ const [needLogin, setNeedLogin] = useState(!!localStorageToken);
         login,
         loadBoards,
         getOneBoard,
+        addBoardIdToPin,
+        setAddPinToBoard,
+        addPinToBoard
       }}
     >
       <App />

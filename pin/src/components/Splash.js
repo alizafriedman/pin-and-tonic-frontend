@@ -12,25 +12,48 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { Link } from 'react-router-dom';
+import "./styles.sass";
+import AddIcon from '@material-ui/icons/Add';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Collapse from '@material-ui/core/Collapse';
+import CardContent from '@material-ui/core/CardContent';
+import clsx from 'clsx';
+import AddToBoard from './AddToBoard';
+import LocalBarIcon from '@material-ui/icons/LocalBar';
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 345,
+        maxWidth: 318,
+        marginTop: "45px",
+        marginBottom: "45px",
+        borderRadius: "30px"
     },
     pinContainer: {
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+       
+       
     },
     media: {
-        height: "15",
+        height: "10",
         paddingTop: "36%",
     },
     title: {
         fontSize: "30px",
-        fontWeight: "bold",
+        // fontWeight: "900",
+        fontStretch: "expanded",
         color: "#500815",
         textAlign: "center",
+        fontFamily: '-apple-system,system-ui,BlinkMacSystemFont,' +
+            '"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+        
+        
+    },
+    select: {
+        hover: 'none'
     },
     expand: {
         transform: "rotate(0deg)",
@@ -49,7 +72,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Splash(props) {
     const classes = useStyles();
+    const [expanded, setExpanded] = React.useState(false);
     const context = useContext(UserContext)
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
 
     useEffect(() => {
         // const test = props.match.params.id;
@@ -60,25 +87,13 @@ export default function Splash(props) {
     return (
         <React.Fragment>
             <div className="pinHeader">
-                <h2 className="pinHeader__text">blah</h2>
+                <h2 className="pinHeader__text">suggested pins for you</h2>
             </div>
             <div className={classes.pinContainer}>
                 {context.pins.map((pin) => {
                     return (
-                        <Card className={classes.root} key={pin.img}>
-                            <CardHeader
-                                avatar={
-                                    <Avatar
-                                        aria-label="Board"
-                                        className={classes.avatar}
-                                    ></Avatar>
-                                }
-                                action={
-                                    <IconButton aria-label="settings">
-                                        <MoreVertIcon />
-                                    </IconButton>
-                                }
-                            />
+                        <Card className={classes.root} id="testing" key={pin.img}>
+                            <CardHeader className="splashHeader" />
                             <Typography
                                 className={classes.title}
                                 variant="body2"
@@ -94,21 +109,44 @@ export default function Splash(props) {
                                 image={pin.imgUrl}
 
                             />
+                            <Collapse in={expanded} timeout="auto" unmountOnExit>
+                                <CardContent>
+                                    <Typography paragraph>Directions:</Typography>
+                                    <Typography paragraph>
+                                        {pin.description}
+                                    </Typography>
+                                </CardContent>
+                            </Collapse>
                             <CardActions disableSpacing>
-                                <IconButton aria-label="add to favorites">
-                                    <FavoriteIcon />
+                                <IconButton aria-label="add to favorites" color='secondary'>
+                                    <LocalBarIcon/>
                                 </IconButton>
-                                <IconButton aria-label="share">
+                                <IconButton aria-label="share" color='inherit'>
                                     <ShareIcon />
                                 </IconButton>
+                                <IconButton>
+                                    <AddIcon />
+                                </IconButton>
+                                {/* <AddToBoard className={classes.select} /> */}
+                                <CardActions disableSpacing>
 
+                                    <IconButton
+                                        className={clsx(classes.expand, {
+                                            [classes.expandOpen]: expanded,
+                                        })}
+                                        onClick={handleExpandClick}
+                                        aria-expanded={expanded}
+                                        aria-label="show more"
+                                    >
+                                        <ExpandMoreIcon />
+                                    </IconButton>
+                                </CardActions>
                             </CardActions>
-
                         </Card>
                     );
                 })}
             </div>
-        )
+        
             {/* <div className="homeButton">
                 <Link className="newBoardButton" to='/boards/new'>add new board</Link>
             </div> */}

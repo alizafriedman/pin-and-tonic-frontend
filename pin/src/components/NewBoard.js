@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { UserContext } from '../UserContext'
 import "./styles.sass";
+import AddToBoard from './AddToBoard';
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,12 +26,13 @@ export default function NewBoard() {
     const context = useContext(UserContext)
     const [newBoardName, setNewBoardName] = useState('')
     const [newImg, setNewImg] = useState('')
-console.log(newBoardName, newImg)
+// console.log(newBoardName, newImg)
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        context.createBoard(newBoardName, newImg)
+        context.createBoard(newBoardName, newImg);
+        
     };
 
     return (
@@ -39,6 +43,7 @@ console.log(newBoardName, newImg)
                 <TextField id="standard-basic" label="Board Name" onChange={(e) => {setNewBoardName(e.target.value)}}/>
                 <TextField id="standard-basic" label="main img link" onChange={(e) => { setNewImg(e.target.value) }}/>
             </div>
+            <AddToBoard />
             <button type='submit'>create</button>
         </form>
    

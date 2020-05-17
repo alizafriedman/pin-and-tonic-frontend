@@ -16,22 +16,45 @@ import clsx from 'clsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import CardContent from '@material-ui/core/CardContent';
+import AddIcon from '@material-ui/icons/Add';
+import CreateIcon from '@material-ui/icons/Create';
+import LocalBarIcon from '@material-ui/icons/LocalBar';
+import ImageAvatars from './Avatar';
+
+
 
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 345,
+        maxWidth: 315,
+        // maxHeight: 400,
+        marginTop: "45px",
+        marginBottom: "45px",
+        borderRadius: "30px",
+        // color: "#500815",
+        // fontSize: "5px"
     },
     media: {
         height: "15",
         paddingTop: "36%",
+    },
+    text: {
+        color: "#500815",
+        fontSize: "5px"
     },
     title: {
         fontSize: "30px",
         fontWeight: "bold",
         color: "#500815",
         textAlign: "center",
+    },
+    boardCont: {
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+
+
     },
     expand: {
         transform: "rotate(0deg)",
@@ -44,7 +67,8 @@ const useStyles = makeStyles((theme) => ({
         transform: "rotate(180deg)",
     },
     avatar: {
-        backgroundColor: "#500815",
+        color: "#500815",
+
     },
 }));
 
@@ -61,27 +85,36 @@ export default function BoardPins(props) {
         context.getOneBoard(boardId)
     }, [])
     if (!context.singleBoard) return null;
-    console.log(context.singleBoard)
+   
     return (
         <React.Fragment>
+            <div className="boardButtonIcon">
+                <IconButton>
+                    <CreateIcon />
+                    <Link className="newBoardButton" to='/boards/new'>add a new board</Link>
+                </IconButton>
+            </div>
             <div className="boardHeader">
             </div>
-            <div className="boardCont">
+            <div className={classes.boardCont}>
                 {context.singleBoard.Pins.map((pin) => {
                     return (
                         <Card className={classes.root} key={pin.img}>
-                            <CardHeader
-                                avatar={
-                                    <Avatar
+                            <CardHeader className={classes.text}
+                                
+                                action={
+                                    <IconButton
                                         aria-label="Board"
                                         className={classes.avatar}
-                                    ></Avatar>
-                                }
-                                action={
-                                    <IconButton aria-label="settings">
-                                        <MoreVertIcon />
+                                    >
+                                        <LocalBarIcon />
                                     </IconButton>
                                 }
+                                // action={
+                                //     <IconButton aria-label="settings">
+                                //         <LocalBarIcon />
+                                //     </IconButton>
+                                // }
                                 title={pin.category}
                                 subheader= {pin.createdAt}
                             />
@@ -94,7 +127,7 @@ export default function BoardPins(props) {
                             <Typography
                                 className={classes.title}
                                 variant="body2"
-                                component="h2"
+                                component="h5"
                             >
                                 {pin.pinName}
                             </Typography>
@@ -115,11 +148,14 @@ export default function BoardPins(props) {
                                 </CardContent>
                             </Collapse>
                             <CardActions disableSpacing>
-                                <IconButton aria-label="add to favorites">
-                                    <FavoriteIcon />
+                                <IconButton aria-label="add to favorites" color='secondary'>
+                                    <LocalBarIcon />
                                 </IconButton>
                                 <IconButton aria-label="share">
                                     <ShareIcon />
+                                </IconButton>
+                                <IconButton>
+                                    <AddIcon />
                                 </IconButton>
                                 <CardActions disableSpacing>
 
@@ -141,9 +177,6 @@ export default function BoardPins(props) {
                 })}
             </div>
         )
-            <div className="boardButton">
-                <Link className="newBoardButton" to='/boards/new'>add new board</Link>
-            </div>
         </React.Fragment>
     );
 }

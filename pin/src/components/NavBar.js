@@ -15,7 +15,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import HelpIcon from '@material-ui/icons/Help';
 import "./styles.sass";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import SignupPop from './SignupPop'
 import LoginPop from './LoginPop'
 import Boards from './Boards'
@@ -129,7 +129,7 @@ const useStyles = makeStyles((theme) => ({
         <SignupPop />
       </MenuItem>
       <MenuItem onClick={handleMenuClose}>
-        <h2 className='boardButton'>My Boards</h2>
+        <Link to="/users/all" className='boardButton'>My Boards</Link>
       </MenuItem>
       <MenuItem onClick={handleMenuClose}>
         <SignOut />
