@@ -1,13 +1,14 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { backendUrl } from "./config";
-import {UserContext} from './UserContext'
+import { UserContext } from './UserContext';
+import "./components/styles.sass";
 
-const Login = () => {
+const Login = (props) => {
   const { login, authToken } = useContext(UserContext);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [email, setEmail] = useState("demo@example.com");
-  const [password, setPassword] = useState("password");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const context = useContext(UserContext)
 
   const handleSubmit = async (e) => {
@@ -19,11 +20,11 @@ const Login = () => {
     });
 
     if (response.ok) {
+      props.setOpen(false)
       const { token } = await response.json();
       setLoggedIn(true);
       login(token)
-      // context.setAuthToken(token)
-      // loggedIn(token)
+      
     }
   };
 
@@ -50,17 +51,6 @@ const Login = () => {
           onChange={updatePassword}
         />
         <button className='loginButton' type="submit">Login</button>
-        {/* <button type="button" onClick={handleOpen}>
-          Open Modal
-        </button> */}
-        {/* <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-        >
-          {body}
-        </Modal> */}
       </form>
     </div>
   );

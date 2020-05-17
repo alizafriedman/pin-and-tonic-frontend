@@ -4,6 +4,8 @@ import TextField from '@material-ui/core/TextField';
 import { UserContext } from '../UserContext'
 import "./styles.sass";
 import AddToBoard from './AddToBoard';
+import { useHistory } from 'react-router-dom'
+
 
 
 
@@ -18,6 +20,17 @@ const useStyles = makeStyles((theme) => ({
             color: "#500815",
             marginTop: "150px",
         },
+    button: {
+        color: '#500815',
+        outline: 'none',
+        fontSize: '30px',
+        boxShadow: 'none',
+        border: 'none',
+        fontWeight: 'bold',
+        fontFamily: '-apple - system',
+        display: 'flex',
+        justifyContent: 'center'
+    }
     },
 }));
 
@@ -26,7 +39,7 @@ export default function NewBoard() {
     const context = useContext(UserContext)
     const [newBoardName, setNewBoardName] = useState('')
     const [newImg, setNewImg] = useState('')
-// console.log(newBoardName, newImg)
+    const history = useHistory();
 
 
     const handleSubmit = async (e) => {
@@ -35,18 +48,20 @@ export default function NewBoard() {
         
     };
 
-    return (
 
+
+    return (
+<React.Fragment>
         <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
             <div className="newForm">
             <h1 className='createText'>Create New Board </h1>
                 <TextField id="standard-basic" label="Board Name" onChange={(e) => {setNewBoardName(e.target.value)}}/>
                 <TextField id="standard-basic" label="main img link" onChange={(e) => { setNewImg(e.target.value) }}/>
-            </div>
-            <button type='submit'>create</button>
+                </div>
+                <button className='newBoardButton' type='submit'>create board</button>
 
         </form>
-   
+        </React.Fragment>
     );
 }
 

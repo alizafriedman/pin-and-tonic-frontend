@@ -15,7 +15,7 @@ const [singleBoard, setSingleBoard] = useState(null);
   const [pin, setPin] = useState(null);
   const [pins, setAllPins] = useState([]);
 const [authToken, setAuthToken] = useState(localStorageToken);
-const [needLogin, setNeedLogin] = useState(!!localStorageToken);
+const [needLogin, setNeedLogin] = useState(!localStorageToken);
   const history = useHistory();
 
   useEffect(() => {
@@ -25,6 +25,12 @@ const [needLogin, setNeedLogin] = useState(!!localStorageToken);
   }, [authToken])
    
   
+  const logout = () => {
+    window.localStorage.removeItem("temp-token");
+    setAuthToken(localStorageToken);
+    setNeedLogin(true);
+    window.location.href='/'
+  };
   const login = (token) => {
     window.localStorage.setItem("temp-token", token);
     setAuthToken(token);
@@ -53,6 +59,13 @@ const [needLogin, setNeedLogin] = useState(!!localStorageToken);
     }
   };
 
+  const loadPinsHome = async () => {
+    const response = await fetch(`${backendUrl}/`);
+    if (response.ok) {
+      const pins = await response.json();
+      setAllPins(pins.pins);
+    }
+  };
 
   const getOneBoard = async (id) => {
     const response = await fetch(`${backendUrl}/boards/${id}`, {
@@ -96,6 +109,8 @@ const [needLogin, setNeedLogin] = useState(!!localStorageToken);
    if (response.ok) {
      const BoardsResponse = await response.json();
      setNewBoard(BoardsResponse);
+     history.push('/users/all')
+
    }
  };
 
@@ -110,14 +125,16 @@ const [needLogin, setNeedLogin] = useState(!!localStorageToken);
         newBoard,
         authToken,
         setAuthToken,
+        loadBoards,
+        loadPinsHome,
         loadPins,
         needLogin,
         setAllPins,
         createBoard,
         login,
-        loadBoards,
         getOneBoard,
         addBoardIdToPin,
+        logout
         // setAddPinToBoard,
         // addPinToBoard
       }}

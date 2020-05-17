@@ -1,14 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { backendUrl } from "./config";
-// import { PokemonContext } from "./PokemonContext";
-
+import "./components/styles.sass";
 
 const Signup = (props) => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [email, setEmail] = useState("demo@example.com");
-  const [password, setPassword] = useState("password");
-  const [username, setUsername] = useState("username")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("")
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +30,7 @@ const Signup = (props) => {
   if (loggedIn) return <Redirect to="/" />;
 
   return (
-    <div className="signup centered">
+    <div className="signup centered middled">
       <form onSubmit={handleSubmit} className="signForm">
         <h2 id="transition-modal-description">Register</h2>
         <input
@@ -59,7 +58,7 @@ const Signup = (props) => {
           placeholder="Enter Password"
         />
 
-        <button type="submit" className="signupButton">
+        <button type="submit" className="loginButton">
           Sign Up
         </button>
       </form>

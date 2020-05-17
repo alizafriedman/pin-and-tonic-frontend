@@ -1,11 +1,7 @@
-import React, {useEffect, useContext, useState} from 'react';
-import TextField from '@material-ui/core/TextField';
+import React, { useContext } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import { UserContext } from '../UserContext';
 import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 
@@ -23,19 +19,15 @@ export default function AddToBoard(props) {
     const classes = useStyles();
     const context = useContext(UserContext)
 
-    // useEffect(() => {
-    //     context.loadBoards()
-    // }, [])
+    
 
 
     const handleChange = (event) => {
         if (!event.target.value) return;
-context.addBoardIdToPin(event.target.value, props.pin.id);
+        context.addBoardIdToPin(event.target.value, props.pin.id);
+        
     };
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     context.addBoardIdToPin(test)
-    // };
+   
 
     if (!context.boards.length) return null;
     return (

@@ -11,9 +11,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    
   },
   paper: {
     backgroundColor: "#500815",
+    opacity: "0.5px",
     border: "2px solid #500815",
     borderRadius: "15px",
     boxShadow: theme.shadows[5],
@@ -38,10 +40,11 @@ export default function TransitionsModal() {
 
     return (
       <React.Fragment>
-        <div>
+        
           <button type="button" onClick={handleOpen}>
-            Sign Up
+          Sign Up
           </button>
+        <div>
           <Modal
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
@@ -57,8 +60,6 @@ export default function TransitionsModal() {
             <Fade in={open}>
               <div className={classes.paper}>
                 <Signup setOpen={setOpen}/>
-                <p id="transition-modal-description">
-                </p>
               </div>
             </Fade>
           </Modal>

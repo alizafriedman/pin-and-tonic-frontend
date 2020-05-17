@@ -19,7 +19,6 @@ import CardContent from '@material-ui/core/CardContent';
 import AddIcon from '@material-ui/icons/Add';
 import CreateIcon from '@material-ui/icons/Create';
 import LocalBarIcon from '@material-ui/icons/LocalBar';
-import ImageAvatars from './Avatar';
 
 
 
@@ -99,7 +98,7 @@ export default function BoardPins(props) {
             <div className={classes.boardCont}>
                 {context.singleBoard.Pins.map((pin) => {
                     return (
-                        <Card className={classes.root} key={pin.img}>
+                        <Card className={classes.root} key={pin.id}>
                             <CardHeader className={classes.text}
                                 
                                 action={

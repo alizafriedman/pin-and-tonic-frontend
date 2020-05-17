@@ -1,22 +1,20 @@
-import React, { useState, } from 'react';
-import { Redirect, Link } from 'react-router-dom';
-import {UserContext} from '../UserContext'
+import React, { useContext } from 'react';
+import { UserContext } from '../UserContext'
+
 
 const SignOut = () => {
-  const [loggedIn, setLoggedIn] = useState(true);
-  const context = useContext(UserContext)
+  const { logout } = useContext(UserContext)
 
-  
   const onClick = async (e) => {
-    
-    
-   if (loggedIn) setLoggedIn(false);   
-    
-    return <Redirect to="/" />
-};
+    e.preventDefault()
+        logout()
+  }
   
 
-  return <Link onClick={onClick} className="signoutButton">Sign Out</Link>;
+  return (
+    <button onClick={onClick}>Sign Out</button>
+  )
 }
 
 export default SignOut
+
