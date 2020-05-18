@@ -93,7 +93,7 @@ export default function Boards() {
                   variant="body2"
                   component="h2"
                 >
-                {board.boardName}
+                      {`Board: ${ board.boardName}`}
                   </Typography>
                   
                 <CardMedia

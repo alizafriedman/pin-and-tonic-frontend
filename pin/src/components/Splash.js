@@ -50,7 +50,8 @@ const useStyles = makeStyles((theme) => ({
         
     },
     select: {
-        hover: 'none'
+        hover: 'none',
+        color: "#500815"
     },
     expand: {
         transform: "rotate(0deg)",

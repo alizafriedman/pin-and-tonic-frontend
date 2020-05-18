@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         '& .MuiTextField-root': {
             margin: theme.spacing(1),
-            width: '19ch',
+            width: '30ch',
         },
     },
 }));
@@ -40,11 +40,11 @@ export default function AddToBoard(props) {
                         value={null}
                         onChange={handleChange}
         >
-            <MenuItem value={null}>select a board</MenuItem>
+            <MenuItem  value={null}>select a board</MenuItem>
                     {context.boards.map((board) => {
                         return (
 
-                                <MenuItem value={board.id} key={board.id}>{board.boardName}</MenuItem>
+                            <MenuItem value={board.id} key={board.id}>{board.boardName}</MenuItem>
                            
                         )
                     })}

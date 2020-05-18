@@ -128,7 +128,11 @@ const useStyles = makeStyles((theme) => ({
         <SignupPop />
       </MenuItem>
       <MenuItem onClick={handleMenuClose}>
-        <Link to="/users/all" className='boardButton'>My Boards</Link>
+        <Link to="/users/all" className='boardButton'>
+          <Typography>
+            My Boards
+               </Typography>
+          </Link>
       </MenuItem>
       <MenuItem onClick={handleMenuClose}>
         <SignOut />
