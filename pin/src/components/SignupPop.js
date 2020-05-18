@@ -22,7 +22,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
     outline: 0,
     height: "45vh",
-    width: "25vw"
+    width: "25vw",
+    // display: "flex",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 }));
 
@@ -59,6 +62,7 @@ export default function TransitionsModal() {
           >
             <Fade in={open}>
               <div className={classes.paper}>
+                <p id="transition-modal-description">Register</p>
                 <Signup setOpen={setOpen}/>
               </div>
             </Fade>

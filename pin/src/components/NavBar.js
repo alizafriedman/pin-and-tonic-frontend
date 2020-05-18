@@ -189,9 +189,13 @@ const useStyles = makeStyles((theme) => ({
           >
             <MenuIcon />
           </IconButton>
+          <Link to='/' className='homeTag'>
           <Typography className={classes.title} variant="h6" noWrap>
-            pin & tonic
+           
+              pin & tonic
+               
           </Typography>
+          </Link>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

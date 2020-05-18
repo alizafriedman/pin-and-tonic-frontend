@@ -30,10 +30,10 @@ const Signup = (props) => {
   if (loggedIn) return <Redirect to="/" />;
 
   return (
-    <div className="signup centered middled">
+    <div className="centered middled">
       <form onSubmit={handleSubmit} className="signForm">
-        <h2 id="transition-modal-description">Register</h2>
-        <input
+        {/* <h2 id="transition-modal-description">Register</h2> */}
+        <input 
           className="usernameInput"
           type="text"
           value={username}
@@ -62,7 +62,6 @@ const Signup = (props) => {
           Sign Up
         </button>
       </form>
-      }
     </div>
   );
 };

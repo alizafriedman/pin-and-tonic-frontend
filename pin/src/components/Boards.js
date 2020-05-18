@@ -78,7 +78,7 @@ export default function Boards() {
           {context.boards.map((board) => {
             return (
               <Link to={`/boards/${board.id}`} style={{ textDecoration: "none" }}>
-              <Card className={classes.root} key={board.img}>
+              <Card className={classes.root} key={board.id}>
                 <CardActionArea >
                 <CardHeader
                   
