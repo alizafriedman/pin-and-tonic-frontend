@@ -20,38 +20,25 @@ export default function AddToBoard(props) {
     const context = useContext(UserContext)
 
     
-
-
     const handleChange = (event) => {
         if (!event.target.value) return;
         context.addBoardIdToPin(event.target.value, props.pin.id);
-        
     };
    
 
     if (!context.boards.length) return null;
     return (
-  
-        
-             
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={null}
-                        onChange={handleChange}
-        >
-            <MenuItem  value={null}>select a board</MenuItem>
-                    {context.boards.map((board) => {
-                        return (
-
-                            <MenuItem value={board.id} key={board.id}>{board.boardName}</MenuItem>
-                           
-                        )
-                    })}
-                    </Select>
-                
-                       
-           
-       
+        <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={null}
+            onChange={handleChange}>
+    <MenuItem  value={null}>select a board</MenuItem>
+        {context.boards.map((board) => {
+     return (
+         <MenuItem value={board.id} key={board.id}>{board.boardName}</MenuItem>
+            )
+        })}
+        </Select>
     );
 }

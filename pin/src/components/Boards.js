@@ -14,52 +14,78 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { Link } from 'react-router-dom';
 import CreateIcon from '@material-ui/icons/Create';
 import { CardActionArea } from '@material-ui/core'
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+// import tileData from './tileData';
 
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     maxWidth: 318,
+//     marginTop: "45px",
+//     marginBottom: "45px",
+//     borderRadius: "30px"
+//   },
+//   boardCont: {
+//     display: "flex",
+//     flexWrap: "wrap",
+//     justifyContent: "space-around",
+//   },
+//    media: {
+//     height: "10",
+//     paddingTop: "36%",
+//   },
+//   title: {
+//     fontSize: "20px",
+//     fontWeight: "bold",
+//     color: "#500815",
+//     textAlign: "center",
+//   },
+//   expand: {
+//     transform: "rotate(0deg)",
+//     marginLeft: "auto",
+//     transition: theme.transitions.create("transform", {
+//       duration: theme.transitions.duration.shortest,
+//     }),
+//   },
+//   expandOpen: {
+//     transform: "rotate(180deg)",
+//   },
+//   avatar: {
+//     backgroundColor: "#500815",
+//   },
+// }));
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 318,
-    marginTop: "45px",
-    marginBottom: "45px",
-    borderRadius: "30px"
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
   },
-  boardCont: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-  },
-   media: {
-    height: "10",
-    paddingTop: "36%",
-  },
-  title: {
-    fontSize: "20px",
-    fontWeight: "bold",
-    color: "#500815",
-    textAlign: "center",
-  },
-  expand: {
-    transform: "rotate(0deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: "rotate(180deg)",
-  },
-  avatar: {
-    backgroundColor: "#500815",
+  gridList: {
+    width: 500,
+    height: 450,
   },
 }));
+
 
 export default function Boards() {
     const classes = useStyles();
   const context = useContext(UserContext)
+ //load boards with grid of pins displayed inside square -- use with useeffect??
   
+  const tileData = [
+    {
+      img: image,
+      title: 'Image',
+      author: 'author',
+      cols: 2,
+    },
+  ];
 
 
     useEffect(() => {
-        context.loadBoards()
+      context.loadBoards()
     }, [])
 
     // if (!context.boards.length) return null
@@ -78,7 +104,14 @@ export default function Boards() {
           {context.boards.map((board) => {
             return (
               <Link to={`/boards/${board.id}`} style={{ textDecoration: "none" }}>
-              <Card className={classes.root} key={board.id}>
+                <GridList cellHeight={160} className={classes.gridList} cols={3}>
+                  {tileData.map((tile) => (
+                    <GridListTile key={tile.img} cols={tile.cols || 1}>
+                      <img src={tile.img} alt={tile.title} />
+                    </GridListTile>
+                  ))}
+                </GridList>
+              {/* <Card className={classes.root} key={board.id}>
                 <CardActionArea >
                 <CardHeader
                   
@@ -112,7 +145,7 @@ export default function Boards() {
                   </IconButton>
                   </CardActions>
                   </CardActionArea>
-                </Card>
+                </Card> */}
               </Link>
             );
           })}

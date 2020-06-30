@@ -27,12 +27,9 @@ import LocalBarIcon from '@material-ui/icons/LocalBar';
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 315,
-        // maxHeight: 400,
         marginTop: "45px",
         marginBottom: "45px",
         borderRadius: "30px",
-        // color: "#500815",
-        // fontSize: "5px"
     },
     media: {
         height: "15",
@@ -52,8 +49,6 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "space-around",
-
-
     },
     expand: {
         transform: "rotate(0deg)",
@@ -118,11 +113,6 @@ export default function BoardPins(props) {
                                 subheader= {new Date(pin.createdAt).toDateString()}
                             />
                         
-
-
-
-
-
                             <Typography
                                 className={classes.title}
                                 variant="body2"
