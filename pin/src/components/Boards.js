@@ -74,14 +74,14 @@ export default function Boards() {
   const context = useContext(UserContext)
  //load boards with grid of pins displayed inside square -- use with useeffect??
   
-  const tileData = [
-    {
-      img: image,
-      title: 'Image',
-      author: 'author',
-      cols: 2,
-    },
-  ];
+  // const tileData = [
+  //   {
+  //     img: image,
+  //     title: 'Image',
+  //     author: 'author',
+  //     cols: 2,
+  //   },
+  // ];
 
 
     useEffect(() => {
