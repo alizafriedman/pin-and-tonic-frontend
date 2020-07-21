@@ -19,10 +19,8 @@ const [needLogin, setNeedLogin] = useState(!localStorageToken);
   const history = useHistory();
 
   useEffect(() => {
-    if (authToken) {
       loadBoards();
-    }
-  }, [authToken])
+  }, [])
    
   
   const logout = () => {
@@ -38,11 +36,10 @@ const [needLogin, setNeedLogin] = useState(!localStorageToken);
   };
 
   const loadBoards = async () => {
-    const response = await fetch(`${backendUrl}/users/all`, {
-      headers: { Authorization: `Bearer ${authToken}` },
-    });
+    const response = await fetch(`${backendUrl}/boards`);
     if (response.ok) {
       const boards = await response.json();
+      // console.log(boards)
       setBoards(boards.boards);
     }
   };
@@ -108,6 +105,7 @@ const [needLogin, setNeedLogin] = useState(!localStorageToken);
    });
    if (response.ok) {
      const BoardsResponse = await response.json();
+     console.log(BoardsResponse)
      setNewBoard(BoardsResponse);
      history.push('/users/all')
 

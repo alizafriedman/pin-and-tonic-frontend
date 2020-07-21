@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     },
     select: {
         hover: 'none',
-        color: "#500815"
+        color: "#500815",
     },
     expand: {
         transform: "rotate(0deg)",
@@ -117,16 +117,16 @@ export default function Splash(props) {
                                 </CardContent>
                             </Collapse>
                             <CardActions disableSpacing>
-                                <IconButton aria-label="add to favorites" color='secondary'>
+                                {/* <IconButton aria-label="add to favorites" color='secondary'>
                                     <LocalBarIcon/>
-                                </IconButton>
-                                <IconButton aria-label="share" color='inherit'>
+                                </IconButton> */}
+                                {/* <IconButton aria-label="share" color='inherit'>
                                     <ShareIcon />
-                                </IconButton>
-                                <IconButton>
+                                </IconButton> */}
+                                {/* <IconButton>
                                     <AddIcon />
                                     
-                                </IconButton>
+                                </IconButton> */}
                                 <AddToBoard className={classes.select} pin={pin} />
 
                                 <CardActions disableSpacing>

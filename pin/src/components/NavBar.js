@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -19,6 +19,7 @@ import { useHistory, Link } from "react-router-dom";
 import SignupPop from './SignupPop'
 import LoginPop from './LoginPop'
 import SignOut from './SignOut'
+import { UserContext } from '../UserContext';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -88,7 +89,8 @@ const useStyles = makeStyles((theme) => ({
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-   const history = useHistory(); 
+    const history = useHistory(); 
+    const { login } = useContext(UserContext)
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -134,9 +136,9 @@ const useStyles = makeStyles((theme) => ({
                </Typography>
           </Link>
       </MenuItem>
-      <MenuItem onClick={handleMenuClose}>
+      {/* <MenuItem onClick={handleMenuClose}>
         <SignOut />
-      </MenuItem>
+      </MenuItem> */}
     </Menu>
   );
 
@@ -151,22 +153,22 @@ const useStyles = makeStyles((theme) => ({
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
             <HelpIcon />
           </Badge>
         </IconButton>
         <p>Help</p>
-      </MenuItem>
-      <MenuItem>
+      </MenuItem> */}
+      {/* <MenuItem>
         <IconButton aria-label="show 2 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
             <NotificationsIcon />
           </Badge>
         </IconButton>
         <p>Notifications</p>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -185,14 +187,14 @@ const useStyles = makeStyles((theme) => ({
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar className='nav'>
-          <IconButton
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Link to='/' className='homeTag'>
           <Typography className={classes.title} variant="h6" noWrap>
            
@@ -200,7 +202,7 @@ const useStyles = makeStyles((theme) => ({
                
           </Typography>
           </Link>
-          <div className={classes.search}>
+          {/* <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
@@ -212,19 +214,19 @@ const useStyles = makeStyles((theme) => ({
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+          </div> */}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            {/* <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge>
                 <HelpIcon />
               </Badge>
-            </IconButton>
-            <IconButton aria-label="show 2 new notifications" color="inherit">
+            </IconButton> */}
+            {/* <IconButton aria-label="show 2 new notifications" color="inherit">
               <Badge badgeContent={2} color="secondary">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
             <IconButton
               edge="end"
               aria-label="account of current user"

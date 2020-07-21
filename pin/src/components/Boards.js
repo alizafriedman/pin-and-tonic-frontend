@@ -16,56 +16,58 @@ import CreateIcon from '@material-ui/icons/Create';
 import { CardActionArea } from '@material-ui/core'
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import SignOut from './SignOut';
 // import tileData from './tileData';
 
 // const useStyles = makeStyles((theme) => ({
-//   root: {
-//     maxWidth: 318,
-//     marginTop: "45px",
-//     marginBottom: "45px",
-//     borderRadius: "30px"
-//   },
-//   boardCont: {
-//     display: "flex",
-//     flexWrap: "wrap",
-//     justifyContent: "space-around",
-//   },
-//    media: {
-//     height: "10",
-//     paddingTop: "36%",
-//   },
-//   title: {
-//     fontSize: "20px",
-//     fontWeight: "bold",
-//     color: "#500815",
-//     textAlign: "center",
-//   },
-//   expand: {
-//     transform: "rotate(0deg)",
-//     marginLeft: "auto",
-//     transition: theme.transitions.create("transform", {
-//       duration: theme.transitions.duration.shortest,
-//     }),
-//   },
-//   expandOpen: {
-//     transform: "rotate(180deg)",
-//   },
-//   avatar: {
-//     backgroundColor: "#500815",
-//   },
+
 // }));
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    maxWidth: 318,
+    marginTop: "45px",
+    marginBottom: "45px",
+    borderRadius: "30px",
   },
-  gridList: {
-    width: 500,
-    height: 450,
+  boardCont: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
   },
+  media: {
+    height: "10",
+    paddingTop: "36%",
+  },
+  title: {
+    fontSize: "20px",
+    fontWeight: "bold",
+    color: "#500815",
+    textAlign: "center",
+  },
+  expand: {
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: "rotate(180deg)",
+  },
+  avatar: {
+    backgroundColor: "#500815",
+  },
+  // root: {
+  //   display: 'flex',
+  //   flexWrap: 'wrap',
+  //   justifyContent: 'space-around',
+  //   overflow: 'hidden',
+  //   backgroundColor: theme.palette.background.paper,
+  // },
+  // gridList: {
+  //   width: 500,
+  //   height: 450,
+  // },
 }));
 
 
@@ -88,13 +90,14 @@ export default function Boards() {
       context.loadBoards()
     }, [])
 
-    // if (!context.boards.length) return null
+  if (!context.boards.length) return null
+  // if (context.authToken) return <SignOut />
     return (
       <React.Fragment>
         <div className="boardButtonIcon">
           <IconButton>
-            <CreateIcon />
-          <Link className="newBoardButton" to='/boards/new'>add a new board</Link>
+            <SignOut />
+          {/* <Link className="newBoardButton" to='/boards/new'>add a new board</Link> */}
           </IconButton>
         </div>
         <div className="boardHeader">
@@ -111,7 +114,7 @@ export default function Boards() {
                     </GridListTile>
                   ))}
                 </GridList> */}
-              {/* <Card className={classes.root} key={board.id}>
+              <Card className={classes.root} key={board.id}>
                 <CardActionArea >
                 <CardHeader
                   
@@ -145,7 +148,7 @@ export default function Boards() {
                   </IconButton>
                   </CardActions>
                   </CardActionArea>
-                </Card> */}
+                </Card>
               </Link>
             );
           })}

@@ -82,12 +82,12 @@ export default function BoardPins(props) {
    
     return (
         <React.Fragment>
-            <div className="boardButtonIcon">
+            {/* <div className="boardButtonIcon">
                 <IconButton>
                     <CreateIcon />
                     <Link className="newBoardButton" to='/boards/new'>add a new board</Link>
                 </IconButton>
-            </div>
+            </div> */}
             <div className="boardHeader">
             </div>
             <div className={classes.boardCont}>
@@ -137,15 +137,15 @@ export default function BoardPins(props) {
                                 </CardContent>
                             </Collapse>
                             <CardActions disableSpacing>
-                                <IconButton aria-label="add to favorites" color='secondary'>
+                                {/* <IconButton aria-label="add to favorites" color='secondary'>
                                     <LocalBarIcon />
-                                </IconButton>
-                                <IconButton aria-label="share">
+                                </IconButton> */}
+                                {/* <IconButton aria-label="share">
                                     <ShareIcon />
-                                </IconButton>
-                                <IconButton>
+                                </IconButton> */}
+                                {/* <IconButton>
                                     <AddIcon />
-                                </IconButton>
+                                </IconButton> */}
                                 <CardActions disableSpacing>
 
                                     <IconButton
@@ -165,7 +165,6 @@ export default function BoardPins(props) {
                     );
                 })}
             </div>
-        )
         </React.Fragment>
     );
 }
