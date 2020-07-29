@@ -16,7 +16,7 @@ const App = () => {
         <NavBar />
         <Switch>
           <Route exact path="/" component={Splash} />
-          <Route path="/users/all" component={Boards} />
+          <Route path="/boards/" component={Boards} />
           {/* <Route exact path="/boards/new" component={NewBoard} /> */}
         <Route path="/boards/:id" component={BoardPins} />
         </Switch>
