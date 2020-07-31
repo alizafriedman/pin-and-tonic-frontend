@@ -12,15 +12,15 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(`${backendUrl}/users/new`, {
-      method: "post",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password }),
     });
 
-    if (response.ok) {
+    // if (response.ok) {
       props.setOpen(false);
       setLoggedIn(true);
-    }
+    // }
   };
 
   const updateEmail = (e) => setEmail(e.target.value);

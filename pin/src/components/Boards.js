@@ -140,12 +140,12 @@ export default function Boards() {
                   image={board.img}
                 />
                 <CardActions disableSpacing>
-                  <IconButton aria-label="add to favorites">
+                  {/* <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
-                  </IconButton>
-                  <IconButton aria-label="share">
+                  </IconButton> */}
+                  {/* <IconButton aria-label="share">
                     <ShareIcon />
-                  </IconButton>
+                  </IconButton> */}
                   </CardActions>
                   </CardActionArea>
                 </Card>
