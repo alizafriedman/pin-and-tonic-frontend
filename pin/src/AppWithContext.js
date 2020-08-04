@@ -40,7 +40,7 @@ const [needLogin, setNeedLogin] = useState(!localStorageToken);
     
     if (response.ok) {
       const boards = await response.json();
-      console.log('apple')
+      console.log(boards)
       setBoards(boards.boards);
     }
   };

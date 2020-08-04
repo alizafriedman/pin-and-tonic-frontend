@@ -15,8 +15,8 @@ const App = () => {
       <CssBaseline>
         <NavBar />
         <Switch>
-          <Route exact path="*" component={Splash} />
-          <Route exact path="boards" component={Boards} />
+          <Route exact path="/" component={Splash} />
+          <Route exact path="/boards" component={Boards} />
           {/* <Route exact path="/boards/new" component={NewBoard} /> */}
         <Route path="/boards/:id" component={BoardPins} />
         </Switch>
