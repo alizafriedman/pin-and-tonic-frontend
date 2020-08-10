@@ -37,7 +37,7 @@ const [needLogin, setNeedLogin] = useState(!localStorageToken);
 
   const loadBoards = async () => {
     const response = await fetch(`${backendUrl}/boards`);
-    
+  console.log(response)
     if (response.ok) {
       const boards = await response.json();
       console.log(boards)
@@ -61,7 +61,7 @@ const [needLogin, setNeedLogin] = useState(!localStorageToken);
     const response = await fetch(`${backendUrl}/`);
     if (response.ok) {
       const pins = await response.json();
-      // console.log(pins)
+      console.log(pins)
       setAllPins(pins.pins);
     }
   };

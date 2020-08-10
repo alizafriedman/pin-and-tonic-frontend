@@ -81,7 +81,7 @@ export default function Splash(props) {
         context.loadPinsHome()
 
     }, [])
-    // console.log(context.loadPins)
+    console.log(context.loadPins)
     // if (!context.pins.length) return null;
     return (
         <React.Fragment>
