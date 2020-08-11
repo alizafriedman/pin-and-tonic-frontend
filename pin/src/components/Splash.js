@@ -107,7 +107,7 @@ export default function Splash(props) {
                           alt="test"
                           height="500"
                           width="450"
-                          image={pin.imgUrl}
+                          image={pin.imgUrl}  
                         />
                         <Collapse in={expanded} timeout="auto" unmountOnExit>
                           <CardContent>
