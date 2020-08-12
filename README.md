@@ -12,7 +12,7 @@ Backend for app here: [Pin and Tonic Backend](https://github.com/alizafriedman/p
 
 ## Documentation links
 - [Feature List](https://github.com/alizafriedman/ptproject/blob/master/documentation/featuresList.md)
-- [Back End Routes](https://github.com/alizafriedman/ptprojects/blob/master/documentation/routes.md)
+- [Routes](https://github.com/alizafriedman/ptprojects/blob/master/documentation/routes.md)
 - [Schema Image](https://github.com/alizafriedman/ptprojects/blob/master/documentation/schema.png)
 
 
