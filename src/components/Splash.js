@@ -86,75 +86,81 @@ export default function Splash(props) {
     console.log(context.loadPins)
     // if (!context.pins.length) return null;
     return (
-        <React.Fragment>
-            <div className="pinHeader">
-                <h2 className="pinHeader__text">suggested pins for you</h2>
-            </div>
-            <div className={classes.pinContainer}>
-                {context.pins.map((pin) => {
-                    return (
-                      <Card className={classes.root} id="testing" key={pin.id}>
-                        <CardHeader className="splashHeader" />
-                        <Typography
-                          className={classes.title}
-                          variant="body2"
-                          component="h2"
-                        >
-                          {pin.pinName}
-                        </Typography>
-                        <CardMedia
-                          component="img"
-                          alt="test"
-                          height="500"
-                          width="450"
-                          image={pin.imgUrl}  
-                        />
-                        <Collapse in={expanded} timeout="auto" unmountOnExit>
-                          <CardContent>
-                            <Typography paragraph>Directions:</Typography>
-                            <Typography paragraph>{pin.description}</Typography>
-                          </CardContent>
-                        </Collapse>
-                        <CardActions disableSpacing>
-                          {/* <IconButton aria-label="add to favorites" color='secondary'>
+      <React.Fragment>
+        <div className="pinHeader">
+          <h2 className="pinHeader__text">suggested pins for you</h2>
+        </div>
+        <div className="home-text">
+          <h4>
+            Hi! You can save any pin to a variety of boards by using the drop
+            down menu. <br />
+            To save these additions for the future, please log in before saving
+            a pin to a board of your choosing.
+          </h4>
+          <br />
+          <h3>happy mixing!</h3>
+        </div>
+        <div className={classes.pinContainer}>
+          {context.pins.map((pin) => {
+            return (
+              <Card className={classes.root} id="testing" key={pin.id}>
+                <CardHeader className="splashHeader" />
+                <Typography
+                  className={classes.title}
+                  variant="body2"
+                  component="h2"
+                >
+                  {pin.pinName}
+                </Typography>
+                <CardMedia
+                  component="img"
+                  alt="test"
+                  height="500"
+                  width="450"
+                  image={pin.imgUrl}
+                />
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                  <CardContent>
+                    <Typography paragraph>Directions:</Typography>
+                    <Typography paragraph>{pin.description}</Typography>
+                  </CardContent>
+                </Collapse>
+                <CardActions disableSpacing>
+                  {/* <IconButton aria-label="add to favorites" color='secondary'>
                                     <LocalBarIcon/>
                                 </IconButton> */}
-                          {/* <IconButton aria-label="share" color='inherit'>
+                  {/* <IconButton aria-label="share" color='inherit'>
                                     <ShareIcon />
                                 </IconButton> */}
-                          {/* <IconButton>
+                  {/* <IconButton>
                                     <AddIcon />
                                     
                                 </IconButton> */}
-                          <AddToBoard
-                            className={classes.select}
-                                    pin={pin}
-                                    
-                          />
+                  <AddToBoard className={classes.select} pin={pin} />
 
-                          {/* <CardActions disableSpacing> */}
-                          <Typography className="recipe">Recipe:</Typography>
-                          <IconButton
-                            className={clsx(classes.expand, {
-                              [classes.expandOpen]: expanded,
-                            })}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
-                          >
-                            <ExpandMoreIcon />
-                          </IconButton>
-                          {/* </CardActions> */}
-                        </CardActions>
-                      </Card>
-                    );
-                })}
-            </div>
-        
-            {/* <div className="homeButton">
+                  {/* <CardActions disableSpacing> */}
+                  <Typography className="recipe">Recipe:</Typography>
+                  <IconButton
+                    className={clsx(classes.expand, {
+                      [classes.expandOpen]: expanded,
+                    })}
+                    onClick={handleExpandClick}
+                    aria-expanded={expanded}
+                    aria-label="show more"
+                  >
+                    <ExpandMoreIcon />
+                  </IconButton>
+                  {/* </CardActions> */}
+                </CardActions>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* <div className="homeButton">
                 <Link className="newBoardButton" to='/boards/new'>add new board</Link>
             </div> */}
-        </React.Fragment>
+      </React.Fragment>
     );
 }
 
