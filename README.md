@@ -12,15 +12,13 @@ Backend for app here: [Pin and Tonic Backend](https://github.com/alizafriedman/P
 
 ## Documentation links
 - [Feature List](https://github.com/alizafriedman/Pin-and-Tonic-backend/blob/master/docs/featuresList.md)
-- [Front End Routes**](need to do)
 - [Back End Routes](https://github.com/alizafriedman/RobinGood-backend/blob/master/documentation/backendRoutes.md)
-- [Schema**](need to do)
 - [Schema Image](https://github.com/alizafriedman/Pin-and-Tonic-backend/blob/master/docs/schema.png)
 
 
 ## Screenshots
-* Search by term
-![search by term gif!](https://github.com/alizafriedman/RobinGood-backend/blob/master/documentation/images/captured%20(1).gif)
+* Add pin to board
+![pin to board gif!](https://github.com/alizafriedman/ptproject/blob/master/documentation/images/captured%20(6).gif)
 
 * Search by EIN
 ![search by ein gif](https://github.com/alizafriedman/RobinGood-backend/blob/master/documentation/images/captured%20(2).gif)
