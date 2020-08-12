@@ -20,12 +20,6 @@ Backend for app here: [Pin and Tonic Backend](https://github.com/alizafriedman/p
 * Add pin to board
 ![pin to board gif!](https://github.com/alizafriedman/ptproject/blob/master/documentation/images/captured%20(6).gif)
 
-* Search by EIN
-![search by ein gif](https://github.com/alizafriedman/RobinGood-backend/blob/master/documentation/images/captured%20(2).gif)
-
-* View important information
-![info gif](https://github.com/alizafriedman/RobinGood-backend/blob/master/documentation/images/captured%20(4).gif)
-
 
 
 
@@ -37,4 +31,5 @@ Backend for app here: [Pin and Tonic Backend](https://github.com/alizafriedman/p
   - CSS3 / SASS
   - Material UI
   - Heroku
+  - AWS Amplify
 
