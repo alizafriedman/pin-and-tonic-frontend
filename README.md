@@ -8,12 +8,12 @@ To log-in as a user - the email: demo@demo.com with the password: Demo123!
 
 Frontend for app here: [Pin and Tonic Frontend](https://github.com/alizafriedman/pin-and-tonic-frontend)
 
-Backend for app here: [Pin and Tonic Backend](https://github.com/alizafriedman/Pin-and-Tonic-backend)
+Backend for app here: [Pin and Tonic Backend](https://github.com/alizafriedman/ptproject)
 
 ## Documentation links
-- [Feature List](https://github.com/alizafriedman/Pin-and-Tonic-backend/blob/master/docs/featuresList.md)
-- [Back End Routes](https://github.com/alizafriedman/RobinGood-backend/blob/master/documentation/backendRoutes.md)
-- [Schema Image](https://github.com/alizafriedman/Pin-and-Tonic-backend/blob/master/docs/schema.png)
+- [Feature List](https://github.com/alizafriedman/ptproject/blob/master/documentation/featuresList.md)
+- [Back End Routes](https://github.com/alizafriedman/ptprojects/blob/master/documentation/backendRoutes.md)
+- [Schema Image](https://github.com/alizafriedman/ptprojects/blob/master/documentation/schema.png)
 
 
 ## Screenshots
