@@ -37,10 +37,10 @@ const [needLogin, setNeedLogin] = useState(!localStorageToken);
 
   const loadBoards = async () => {
     const response = await fetch(`${backendUrl}/boards`);
-  console.log(response)
+  // console.log(response)
     if (response.ok) {
       const boards = await response.json();
-      console.log(boards)
+      // console.log(boards)
       setBoards(boards.boards);
     }
   };
@@ -61,7 +61,7 @@ const [needLogin, setNeedLogin] = useState(!localStorageToken);
     const response = await fetch(`${backendUrl}/`);
     if (response.ok) {
       const pins = await response.json();
-      console.log(pins)
+      // console.log(pins)
       setAllPins(pins.pins);
     }
   };
@@ -107,7 +107,7 @@ const [needLogin, setNeedLogin] = useState(!localStorageToken);
    });
    if (response.ok) {
      const BoardsResponse = await response.json();
-     console.log(BoardsResponse)
+    //  console.log(BoardsResponse)
      setNewBoard(BoardsResponse);
      history.push('/boards')
 

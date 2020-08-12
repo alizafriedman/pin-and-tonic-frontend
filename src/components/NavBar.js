@@ -20,6 +20,7 @@ import SignupPop from './SignupPop'
 import LoginPop from './LoginPop'
 import SignOut from './SignOut'
 import { UserContext } from '../UserContext';
+import Demo from './Demo'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -130,11 +131,12 @@ const useStyles = makeStyles((theme) => ({
         <SignupPop />
       </MenuItem>
       <MenuItem onClick={handleMenuClose}>
-        <Link to="/boards" className='boardButton'>
-          <Typography>
-            My Boards
-               </Typography>
-          </Link>
+        <Demo />
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link to="/boards" className="boardButton">
+          <Typography>My Boards</Typography>
+        </Link>
       </MenuItem>
       {/* <MenuItem onClick={handleMenuClose}>
         <SignOut />
