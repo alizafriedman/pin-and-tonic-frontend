@@ -20,6 +20,12 @@ Backend for app here: [Pin and Tonic Backend](https://github.com/alizafriedman/p
 * Add pin to board
 ![pin to board gif!](https://github.com/alizafriedman/ptproject/blob/master/documentation/images/captured%20(6).gif)
 
+* Homepage displays only pins you have not added yet
+![pin to board gif!](https://github.com/alizafriedman/ptproject/blob/master/documentation/images/captured%20(7).gif)
+
+* View your boards & the pins saved to each board
+![pin to board gif!](https://github.com/alizafriedman/ptproject/blob/master/documentation/images/captured%20(8).gif)
+
 
 
 
