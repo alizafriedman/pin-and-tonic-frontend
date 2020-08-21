@@ -94,8 +94,8 @@ export default function Splash(props) {
           <h4>
             Hi! You can save any pin to a variety of boards by using the drop
             down menu. <br />
-            To save these additions for the future, please log in before saving
-            a pin to a board of your choosing.
+            {/* To save these additions for the future, please log in before saving
+            a pin to a board of your choosing. */}
           </h4>
           <br />
           <h3>happy mixing!</h3>
