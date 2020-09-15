@@ -124,12 +124,12 @@ const useStyles = makeStyles((theme) => ({
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>
+      {/* <MenuItem onClick={handleMenuClose}>
         <LoginPop />
-      </MenuItem>
-      <MenuItem onClick={handleMenuClose}>
+      </MenuItem> */}
+      {/* <MenuItem onClick={handleMenuClose}>
         <SignupPop />
-      </MenuItem>
+      </MenuItem> */}
       {/* <MenuItem onClick={handleMenuClose}>
         <Demo />
       </MenuItem> */}
